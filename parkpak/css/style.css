@@ -1,0 +1,38 @@
+
+@font-face {
+  font-family: 'lemon_milk';
+  src: url('/fonts/lemon_milk/lemonmilkbold-webfont.woff') format('woff'),
+       url('/fonts/lemon_milk/lemonmilkbold-webfont.woff2') format('woff2'),
+
+}
+img.icon{
+         display:block;
+         width: 58px;
+         border:none;
+         margin:0 auto;
+         }
+#titlepic{
+  display:block;
+  
+  border:none;
+  margin:0 auto;
+}
+body{
+          background-color:#71DB77;
+         }
+div{
+  background-color:white;
+}
+p.yr{
+  color:#71DB77; font-size:28pt; font-family:"Trebuchet MS";
+}
+h2.yr{
+  color:#71DB77; font-family:"Courier"; font-size:40pt; font-weight:bold;
+}
+
+p.bg{
+    color:green; font-size:60pt; font-family:"Trebuchet MS";
+}
+h2.bg{
+    color:#71DB77; font-family:"Courier"; font-size:40pt; font-weight:bold;
+}

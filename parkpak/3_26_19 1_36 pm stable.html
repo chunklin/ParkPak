@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <meta charset="utf-8">
+            <title>Workstation</title>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+            <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+
+     
+
+            <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
+            <script>
+               
+              // Initialize Firebase
+              var config = {
+                apiKey: "AIzaSyDatQ7v6OyS4bZMXLqUltkDfFd4nsrM9xA",
+                authDomain: "lahworkstation2019.firebaseapp.com",
+                databaseURL: "https://lahworkstation2019.firebaseio.com",
+                projectId: "lahworkstation2019",
+                storageBucket: "lahworkstation2019.appspot.com",
+                messagingSenderId: "157884334034"
+              };
+              firebase.initializeApp(config);
+              
+              var dbReflight = firebase.database().ref().child('user/light');
+              dbReflight.on('value', function(DataSnapshot){document.getElementById('lightlevelvalue').innerHTML = DataSnapshot.val();});
+              var dbReftemperature = firebase.database().ref().child('user/temperature');
+              dbReftemperature.on('value', function(DataSnapshot){document.getElementById('temperaturevalue').innerHTML = DataSnapshot.val();});
+              var dbRefsound = firebase.database().ref().child('user/sound');
+              dbRefsound.on('value', function(DataSnapshot){document.getElementById('soundstatus').innerHTML = DataSnapshot.val();});
+              var dbRefboss = firebase.database().ref().child('user/boss');
+              dbRefboss.on('value', function(DataSnapshot){document.getElementById('bossstatus').innerHTML = DataSnapshot.val();});
+              var dbRefwindow = firebase.database().ref().child('user/window');
+              dbRefwindow.on('value', function(DataSnapshot){document.getElementById('windowstatus').innerHTML = DataSnapshot.val();});
+              var dbReflock = firebase.database().ref().child('user/lock');
+              dbReflock.on('value', function(DataSnapshot){document.getElementById('lockstatus').innerHTML = DataSnapshot.val();});
+              </script>
+
+
+
+<div class="container-fluid">
+
+    <div class="row">
+      <div class="col-sm-4"  ><h2 class="text-center yr">BOSS STATUS</h2><p class="text-center yr" id="bossstatus"></p></div>
+      <div class="col-sm-4"  ><h2 class="text-center bg">LIGHT LEVEL</h2><p class="text-center bg" id="lightlevelvalue"></p></div>
+      <div class="col-sm-4"  ><iframe src="https://calendar.google.com/calendar/embed?title=Agenda&amp;mode=WEEK&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=hiaadhav%40gmail.com&amp;color=%23875509&amp;src=4pi3vfs1c3pf1v49qsg1vcqs9c%40group.calendar.google.com&amp;color=%2328754E&amp;src=de7ivl22eopiadt3b58bmq09lg%40group.calendar.google.com&amp;color=%23865A5A&amp;ctz=America%2FLos_Angeles" style="border-width:0" width="450" height="200" frameborder="0" scrolling="no"></iframe></div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4"  ><h2 class="text-center bg">TEMPERATURE</h2><p class="text-center bg" id="temperaturevalue"></p></div>
+      <div class="col-sm-4"  ><img src="images/workstation.PNG"></div>
+      <div class="col-sm-4"  ><h2 class="text-center bg">SOUND</h2><p class="text-center bg" id="soundstatus"></p></div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4"  ><h2 class="text-center yr">WINDOW STATUS</h2><p class="text-center yr" id="windowstatus"></p></div>
+      <div class="col-sm-4"  ><h2 class="text-center bg">WELCOME</h2><p class="text-center bg">Aadhav</p></div>
+      <div class="col-sm-4"  ><h2 class="text-center yr">LOCK STATUS</h2><p class="text-center yr" id="lockstatus"></p></div>
+    </div>
+  </div>
+
+
+    </body>
+
+
+</html>

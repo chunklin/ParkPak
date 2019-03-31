@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <meta charset="utf-8">
+            <title>Parkpak</title>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+            <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+
+
+
+
+<div class="container">
+<table style="width:100%">
+
+<tr>
+<td style="width:70%">
+<div class="row" ><img id="titlepic" src="images/ppakimg.PNG"></div>
+<div class="row"><iframe src="https://calendar.google.com/calendar/b/3/embed?mode=WEEK&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=parkpaklinghacks2019%40gmail.com&amp;color=%231B887A&amp;ctz=America%2FLos_Angeles" style="border-width:0" width="100%" height="300" frameborder="0" scrolling="no"></iframe></div>
+<div class="row"><p id="newsflash">test failed</p></div>
+
+</td>
+<td style="width:30%">
+
+
+    <div   ><img class="icon" src="images/sun_art.PNG"><p class="text-center yr" id="lightlevel"></p></div>
+    <div   ><img class="icon" src="images/people_art.PNG"><p class="text-center yr" id="faces">num faces</p></div>
+
+    <div   ><img class="icon" src="images/thermometer_art.PNG"><p class="text-center yr" id="temperature"></p></div>
+
+
+
+    <div   ><img class="icon" src="images/megaphone_art.PNG"><p class="text-center yr" id="soundlevel"></p></div>
+    <div   ><img class="icon" src="images/lightbulb_art.PNG"><p class="text-center yr" id="uv"></p></div>
+
+
+    <div   ><img class="icon" src="images/humidifier.PNG"><p class="text-center yr" id="humidity"></p></div>
+
+</td>
+</tr>
+
+
+
+</table>
+</div>
+<!--
+<div class="container-fluid">
+
+    <div class="row">
+      <div class="col-sm-4"  ><h2 class="text-center yr">Calendar</h2><iframe src="https://calendar.google.com/calendar/b/3/embed?mode=WEEK&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=parkpaklinghacks2019%40gmail.com&amp;color=%231B887A&amp;ctz=America%2FLos_Angeles" style="border-width:0" width="800" height="200" frameborder="0" scrolling="no"></iframe><img class="icon" src="images/calendar_art.PNG"></div>
+
+      <div class="col-sm-4"  ><img src="images/ppakimg.PNG"></div>
+      <div class="col-sm-4"  ><h2 class="text-center yr">News</h2><p class="text-center yr" id="news">news</p><img class="icon" src="images/newspaper_art.PNG"></div>
+
+
+    </div>
+    <div class="row">
+
+      <div class="col-sm-4"  ><h2 class="text-center yr">light level</h2><p class="text-center yr" id="lightlevel"></p><img class="icon" src="images/sun_art.PNG"></div>
+      <div class="col-sm-4"  ><h2 class="text-center yr">Faces</h2><p class="text-center yr" id="faces">num faces</p><img class="icon" src="images/people_art.PNG"></div>
+
+      <div class="col-sm-4"  ><h2 class="text-center yr">Temperature</h2><p class="text-center yr" id="temperature"></p><img class="icon" src="images/thermometer_art.PNG"></div>
+
+    </div>
+    <div class="row">
+      <div class="col-sm-4"  ><h2 class="text-center yr">Sound</h2><p class="text-center yr" id="soundlevel"></p><img class="icon" src="images/megaphone_art.PNG"></div>
+      <div class="col-sm-4"  ><h2 class="text-center yr">UV</h2><p class="text-center yr" id="uv"></p><img class="icon" src="images/lightbulb_art.PNG"></div>
+
+
+      <div class="col-sm-4"  ><h2 class="text-center yr">Humidity</h2><p class="text-center yr" id="humidity"></p><img class="icon" src="images/humidifier.PNG"></div>
+    </div>
+
+
+  </div>\
+-->
+
+  <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
+  <script>
+
+    var config = {
+    apiKey: "AIzaSyASRPbH6pO_VXvLIz9Xy2opnfKLH_4Abcs",
+    authDomain: "parkpak-c41e3.firebaseapp.com",
+    databaseURL: "https://parkpak-c41e3.firebaseio.com",
+    projectId: "parkpak-c41e3",
+    storageBucket: "parkpak-c41e3.appspot.com",
+    messagingSenderId: "76166645742"
+  };
+  firebase.initializeApp(config);
+
+
+    var dbReflight = firebase.database().ref().child('user/lightlevel');
+    dbReflight.on('value', function(DataSnapshot){document.getElementById('lightlevel').innerHTML = DataSnapshot.val();});
+    var dbReftemperature = firebase.database().ref().child('user/temperature');
+    dbReftemperature.on('value', function(DataSnapshot){document.getElementById('temperature').innerHTML = DataSnapshot.val();});
+    var dbRefsound = firebase.database().ref().child('user/sound');
+    dbRefsound.on('value', function(DataSnapshot){document.getElementById('soundlevel').innerHTML = DataSnapshot.val();});
+    var dbRefuv = firebase.database().ref().child('user/UV');
+    dbRefuv.on('value', function(DataSnapshot){document.getElementById('uv').innerHTML = DataSnapshot.val();});
+    var dbRefmoisture = firebase.database().ref().child('user/humidity');
+    dbRefmoisture.on('value', function(DataSnapshot){document.getElementById('humidity').innerHTML = DataSnapshot.val();});
+    var dbReffaces = firebase.database().ref().child('camera/faceCount');
+    dbReffaces.on('value', function(DataSnapshot){document.getElementById('faces').innerHTML = DataSnapshot.val();});
+    /*
+    // Initialize Firebase
+
+
+
+
+
+
+
+    */
+    </script>
+    <script>
+    var headlist = ["tester"]
+document.getElementById('newsflash').innerHTML = headlist[0];
+var headlist = ["ok"]
+
+    var req = new XMLHttpRequest();
+
+
+    var x = req;
+    var i=0;
+    while(i<5){
+    x.open('GET', 'https://newsapi.org/v2/top-headlines?country=us&apiKey=c5eb346b60fd47e9a84f53b29e3dc280',false);
+    x.send();
+
+    x.onload = function() {
+      if (x.status != 200) {
+      } else {
+     //console.log(JSON.parse(x.responseText));
+     headlist.push(JSON.parse(x.responseText)["articles"][i]["title"]);
+    // document.getElementById('news').innerHTML = JSON.parse(x.responseText)["articles"][i]["title"];
+     //console.log(x.responseText[0])
+      }
+    };
+
+    i++
+    }
+    </script>
+    </body>
+
+
+</html>
