@@ -53,15 +53,23 @@ def predictNegPos(sentence):
         )
         print(result)
 sample_rate = 48000
-data_size = 2048
+data_size = 8192
 
 recog = spreg.Recognizer()
+result = firebase.put(
+    '',
+    '/microphone',
+    {
+        "distress": "normal."
+    }
+)
 while 1:
     with spreg.Microphone(sample_rate = sample_rate, chunk_size = data_size) as source:
         recog.adjust_for_ambient_noise(source)
         print('Tell Something: ')
         speech = recog.listen(source)
     try:
+        print('Processing...')
         text = recog.recognize_google(speech)
         print('You have said: ' + text)
         predictNegPos(text)
